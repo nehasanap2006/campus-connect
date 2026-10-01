@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Connect</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>🎓 Campus Connect</h1>
+  <nav id="nav" hidden>
+    <button data-tab="notices" class="active">Notices</button>
+    <button data-tab="events">Events</button>
+    <button data-tab="items">Lost &amp; Found</button>
+    <button id="logout">Logout (<span id="who"></span>)</button>
+  </nav>
+</header>
+<div id="msg" role="alert"></div>
+
+<main>
+  <!-- Auth -->
+  <section id="auth" class="card">
+    <h2 id="authTitle">Login</h2>
+    <input id="a_name" placeholder="Full name" hidden>
+    <input id="a_dept" placeholder="Department" hidden>
+    <input id="a_email" type="email" placeholder="Email">
+    <input id="a_pass" type="password" placeholder="Password">
+    <button id="authBtn">Login</button>
+    <p><a href="#" id="toggleAuth">New here? Register</a></p>
+    <small>Demo admin: admin@campus.edu / admin123</small>
+  </section>
+
+  <!-- Notices -->
+  <section id="notices" class="tab" hidden>
+    <div class="card admin-only" hidden>
+      <h3>Post a notice</h3>
+      <input id="n_title" placeholder="Title">
+      <input id="n_cat" placeholder="Category (Exam, Sports, ...)">
+      <textarea id="n_body" placeholder="Details"></textarea>
+      <button id="n_add">Post</button>
+    </div>
+    <div id="n_list"></div>
+  </section>
+
+  <!-- Events -->
+  <section id="events" class="tab" hidden>
+    <div class="card admin-only" hidden>
+      <h3>Create an event</h3>
+      <input id="e_title" placeholder="Title">
+      <input id="e_venue" placeholder="Venue">
+      <input id="e_date" type="date">
+      <textarea id="e_desc" placeholder="Description"></textarea>
+      <button id="e_add">Create</button>
+    </div>
+    <div id="e_list"></div>
+  </section>
+
+  <!-- Lost & Found -->
+  <section id="items" class="tab" hidden>
+    <div class="card">
+      <h3>Report an item</h3>
+      <select id="i_kind"><option value="lost">Lost</option><option value="found">Found</option></select>
+      <input id="i_item" placeholder="Item name">
+      <input id="i_contact" placeholder="Contact (phone / email)">
+      <textarea id="i_desc" placeholder="Description"></textarea>
+      <button id="i_add">Post</button>
+    </div>
+    <div id="i_list"></div>
+  </section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
